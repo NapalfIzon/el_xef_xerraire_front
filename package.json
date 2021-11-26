@@ -7,6 +7,11 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
+    "test-dev": "jest --watchAll --collect-coverage",
+    "prepare": "husky install",
+    "git-hook": "eslint --ignore-path .gitignore .",
+    "ts": "tsc --watch",
+    "build": "tsc",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
@@ -22,6 +27,7 @@
     "@types/react-native": "^0.66.6",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "babel-jest": "^27.3.1",
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
@@ -29,6 +35,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-native": "^3.11.0",
+    "husky": "^7.0.4",
     "jest": "^27.3.1",
     "metro-react-native-babel-preset": "^0.66.2",
     "react-test-renderer": "^17.0.2",
@@ -41,6 +48,14 @@
     "preset": "react-native",
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation)"
+    ],
+    "testPathIgnorePatterns": [
+      ".github",
+      ".husky",
+      ".scannerwork",
+      "coverage",
+      "dist",
+      "node_modules"
     ],
     "moduleFileExtensions": [
       "ts",
