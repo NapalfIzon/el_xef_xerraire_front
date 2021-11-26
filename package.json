@@ -49,6 +49,14 @@
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation)"
     ],
+    "testPathIgnorePatterns": [
+      ".github",
+      ".husky",
+      ".scannerwork",
+      "coverage",
+      "dist",
+      "node_modules"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
