@@ -18,34 +18,10 @@ const userReducer = (
         user: action.user,
       };
       break;
-    case actionTypes.userLogin:
-      newUser = {
-        isAuthenticated: true,
-        user: action.user,
-      };
-      break;
     case actionTypes.userLogout:
       newUser = {
         isAuthenticated: false,
         user: {},
-      };
-      break;
-    case actionTypes.modifyUser:
-      newUser = {
-        isAuthenticated: true,
-        user: action.user,
-      };
-      break;
-    case actionTypes.addFavorite:
-      newUser = {
-        isAuthenticated: true,
-        user: action.user,
-      };
-      break;
-    case actionTypes.removeFavorite:
-      newUser = {
-        isAuthenticated: true,
-        user: action.user,
       };
       break;
     default:
