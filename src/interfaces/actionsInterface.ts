@@ -1,9 +1,8 @@
 export interface IActionType {
   loadUser: string;
-  addUser: string;
   userLogin: string;
+  userLogout: string;
   modifyUser: string;
-  removeUser: string;
   addFavorite: string;
   removeFavorite: string;
   getRecipe: string;
@@ -12,4 +11,11 @@ export interface IActionType {
   uploadVote: string;
   modifyRecipe: string;
   removeRecipe: string;
+}
+
+export interface IActionCreator {
+  type: string;
+  user?: object;
+  recipe?: object;
+  recipes?: Array<object>;
 }
