@@ -1,13 +1,7 @@
-import { IActionCreator } from "../../interfaces/actionsInterface";
 import actionTypes from "./actionTypes";
 
 const loadUserAction: object = (user: object) => ({
   type: actionTypes.loadUser,
-  user,
-});
-
-const addUserAction: object = (user: object) => ({
-  type: actionTypes.addUser,
   user,
 });
 
@@ -16,13 +10,13 @@ const userLoginAction: object = (user: object) => ({
   user,
 });
 
-const modifyUserAction: object = (user: object) => ({
-  type: actionTypes.modifyUser,
+const userLogoutAction: object = (user: object) => ({
+  type: actionTypes.userLogout,
   user,
 });
 
-const removeUserAction: object = (user: object) => ({
-  type: actionTypes.removeUser,
+const modifyUserAction: object = (user: object) => ({
+  type: actionTypes.modifyUser,
   user,
 });
 
@@ -68,10 +62,9 @@ const removeRecipeAction: object = (recipe: object) => ({
 
 export {
   loadUserAction,
-  addUserAction,
   userLoginAction,
+  userLogoutAction,
   modifyUserAction,
-  removeUserAction,
   addFavoriteAction,
   removeFavoriteAction,
   getRecipeAction,
