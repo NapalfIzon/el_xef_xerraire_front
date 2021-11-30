@@ -2,10 +2,9 @@ import { IActionType } from "../../interfaces/actionsInterface";
 
 const actionTypes: IActionType = {
   loadUser: "LOAD_USERS",
-  addUser: "ADD_USER",
   userLogin: "USER_LOGIN",
+  userLogout: "USER_LOGOUT",
   modifyUser: "MODIFY_USER",
-  removeUser: "REMOVE_USER",
   addFavorite: "ADD_FAVORITE",
   removeFavorite: "REMOVE_FAVORITE",
   getRecipe: "GET_RECIPE",
