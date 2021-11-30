@@ -5,28 +5,8 @@ const loadUserAction: object = (user: object) => ({
   user,
 });
 
-const userLoginAction: object = (user: object) => ({
-  type: actionTypes.userLogin,
-  user,
-});
-
 const userLogoutAction: object = (user: object) => ({
   type: actionTypes.userLogout,
-  user,
-});
-
-const modifyUserAction: object = (user: object) => ({
-  type: actionTypes.modifyUser,
-  user,
-});
-
-const addFavoriteAction: object = (user: object) => ({
-  type: actionTypes.addFavorite,
-  user,
-});
-
-const removeFavoriteAction: object = (user: object) => ({
-  type: actionTypes.removeFavorite,
   user,
 });
 
@@ -62,11 +42,7 @@ const removeRecipeAction: object = (recipe: object) => ({
 
 export {
   loadUserAction,
-  userLoginAction,
   userLogoutAction,
-  modifyUserAction,
-  addFavoriteAction,
-  removeFavoriteAction,
   getRecipeAction,
   searchRecipeAction,
   addRecipeAction,
