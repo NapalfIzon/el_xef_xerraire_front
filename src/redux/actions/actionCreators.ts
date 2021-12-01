@@ -1,7 +1,18 @@
+import { IActionCreator } from "../../interfaces/actionsInterface";
 import actionTypes from "./actionTypes";
 
 const loadUserAction: object = (user: object) => ({
   type: actionTypes.loadUser,
+  user,
+});
+
+const addUserAction: object = (user: object) => ({
+  type: actionTypes.addUser,
+  user,
+});
+
+const userLoginAction: object = (user: object) => ({
+  type: actionTypes.userLogin,
   user,
 });
 
@@ -10,12 +21,42 @@ const userLogoutAction: object = (user: object) => ({
   user,
 });
 
+const modifyUserAction: object = (user: object) => ({
+  type: actionTypes.modifyUser,
+  user,
+});
+
+const removeUserAction: object = (user: object) => ({
+  type: actionTypes.removeUser,
+  user,
+});
+
+const addFavoriteAction: object = (user: object) => ({
+  type: actionTypes.addFavorite,
+  user,
+});
+
+const removeFavoriteAction: object = (user: object) => ({
+  type: actionTypes.removeFavorite,
+  user,
+});
+
+const getRecipesAction = (recipes: Array<object>) => ({
+  type: actionTypes.getRecipes,
+  recipes,
+});
+
+const getRandomRecipesAction: object = (recipes: Array<object>) => ({
+  type: actionTypes.getRandomRecipes,
+  recipes,
+});
+
 const getRecipeAction: object = (recipe: object) => ({
   type: actionTypes.getRecipe,
   recipe,
 });
 
-const searchRecipeAction: object = (recipes: Array<object>) => ({
+const searchRecipesAction: object = (recipes: Array<object>) => ({
   type: actionTypes.searchRecipes,
   recipes,
 });
@@ -42,9 +83,17 @@ const removeRecipeAction: object = (recipe: object) => ({
 
 export {
   loadUserAction,
+  addUserAction,
+  userLoginAction,
   userLogoutAction,
+  modifyUserAction,
+  removeUserAction,
+  addFavoriteAction,
+  removeFavoriteAction,
+  getRecipesAction,
+  getRandomRecipesAction,
   getRecipeAction,
-  searchRecipeAction,
+  searchRecipesAction,
   addRecipeAction,
   uploadVoteAction,
   modifyRecipeAction,
