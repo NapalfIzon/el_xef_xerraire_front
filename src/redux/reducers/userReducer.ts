@@ -1,4 +1,5 @@
 import { IActionCreator } from "../../interfaces/actionsInterface";
+import { ITestAction } from "../../interfaces/testInterface";
 import actionTypes from "../actions/actionTypes";
 
 const userReducer = (
@@ -9,16 +10,13 @@ const userReducer = (
   // eslint-disable-next-line comma-dangle
   action: IActionCreator
 ) => {
-  let newUser: object = {};
+  let newUser: ITestAction = {
+    isAuthenticated: false,
+    user: {},
+  };
 
   switch (action.type) {
     case actionTypes.loadUser:
-      newUser = {
-        isAuthenticated: true,
-        user: action.user,
-      };
-      break;
-    case actionTypes.userLogin:
       newUser = {
         isAuthenticated: true,
         user: action.user,
@@ -28,24 +26,6 @@ const userReducer = (
       newUser = {
         isAuthenticated: false,
         user: {},
-      };
-      break;
-    case actionTypes.modifyUser:
-      newUser = {
-        isAuthenticated: true,
-        user: action.user,
-      };
-      break;
-    case actionTypes.addFavorite:
-      newUser = {
-        isAuthenticated: true,
-        user: action.user,
-      };
-      break;
-    case actionTypes.removeFavorite:
-      newUser = {
-        isAuthenticated: true,
-        user: action.user,
       };
       break;
     default:
