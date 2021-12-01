@@ -1,4 +1,5 @@
 import { IActionCreator } from "../../interfaces/actionsInterface";
+import { ITestAction } from "../../interfaces/testInterface";
 import actionTypes from "../actions/actionTypes";
 
 const userReducer = (
@@ -9,7 +10,10 @@ const userReducer = (
   // eslint-disable-next-line comma-dangle
   action: IActionCreator
 ) => {
-  let newUser: object = {};
+  let newUser: ITestAction = {
+    isAuthenticated: false,
+    user: {},
+  };
 
   switch (action.type) {
     case actionTypes.loadUser:
