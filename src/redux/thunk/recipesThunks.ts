@@ -7,6 +7,7 @@ export const getRecipesThunk = () => {
     dispatch: (arg0: { type: string; recipes: object[] }) => void
   ) => {
     const { data: recipes } = await axios.get(
+      // eslint-disable-next-line comma-dangle
       "https://proyecto-final-napo-back.herokuapp.com/recipes/"
     );
     dispatch(getRecipesAction(recipes));

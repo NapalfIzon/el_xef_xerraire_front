@@ -1,4 +1,3 @@
-import { IActionCreator } from "../../interfaces/actionsInterface";
 import actionTypes from "../actions/actionTypes";
 
 const recipesReducer = (recipes = [{}], action) => {
