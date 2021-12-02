@@ -1,21 +1,18 @@
-import React, { useEffect } from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-import { getRecipesThunk } from "../../redux/thunk/recipesThunks";
+import React from "react";
+import { SafeAreaView, ScrollView, View } from "react-native";
+import BackgroundImage from "../../components/BackgrounImage/BackgrounImage";
+import LastRecipes from "../../components/LastRecipes/LastRecipes";
+import Navbar from "../../components/Navbar/Navbar";
+import styles from "./HomeScreen.styles";
 
 const HomeScreen = () => {
-  const recipes = useSelector(({ recipes }) => recipes);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getRecipesThunk());
-  }, [dispatch]);
-
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.body}>
       <ScrollView>
         <View>
-          <Text>Caca de la vaca</Text>
+          <Navbar />
+          <BackgroundImage />
+          <LastRecipes />
         </View>
       </ScrollView>
     </SafeAreaView>

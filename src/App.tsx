@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import configureStore from "./redux/store";
 import { Provider } from "react-redux";
+import { NativeBaseProvider } from "native-base";
 import HomeScreen from "./screens/HomeScreen/HomeScreen";
 
 const store = configureStore();
@@ -10,7 +11,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <HomeScreen />
+        <NativeBaseProvider>
+          <HomeScreen />
+        </NativeBaseProvider>
       </NavigationContainer>
     </Provider>
   );

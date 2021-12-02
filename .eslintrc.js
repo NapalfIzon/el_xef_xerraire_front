@@ -10,6 +10,7 @@ module.exports = {
     "plugin:react-native/all",
     "prettier",
     "plugin:jest/recommended",
+    "plugin:react/jsx-runtime",
   ],
   parserOptions: {
     ecmaVersion: 2019,
