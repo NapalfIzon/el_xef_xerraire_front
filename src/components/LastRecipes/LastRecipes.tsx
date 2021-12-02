@@ -14,11 +14,6 @@ const LastRecipes = () => {
     dispatch(getRecipesThunk());
   }, [dispatch]);
 
-  /*
-   * // TODO mirar porque con un "map" va bien, aunque
-   * lo correcto sería con un forEach
-   */
-
   return (
     <View style={styles.container}>
       {recipes.length > 1 ? (
