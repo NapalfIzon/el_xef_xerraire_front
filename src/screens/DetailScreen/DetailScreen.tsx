@@ -1,12 +1,12 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-const SearchScreen = () => {
+const DetailScreen = () => {
   return (
     <View>
-      <Text>Yo seré la SearchScreen</Text>
+      <Text>Yo seré la DetailScreen</Text>
     </View>
   );
 };
 
-export default SearchScreen;
+export default DetailScreen;
