@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_XERRAPI_ENDPOINT } from "@env";
 import { getRecipesAction } from "../actions/actionCreators";
 
 export const getRecipesThunk = () => {
@@ -8,7 +9,7 @@ export const getRecipesThunk = () => {
   ) => {
     const { data: recipes } = await axios.get(
       // eslint-disable-next-line comma-dangle
-      "https://proyecto-final-napo-back.herokuapp.com/recipes/"
+      `${API_XERRAPI_ENDPOINT}recipes/`
     );
     dispatch(getRecipesAction(recipes));
   };
