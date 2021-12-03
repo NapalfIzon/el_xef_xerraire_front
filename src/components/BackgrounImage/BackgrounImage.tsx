@@ -1,9 +1,10 @@
 import React from "react";
 import { View, ImageBackground } from "react-native";
+import { backgroundImage } from "../../utils/routes";
 import styles from "./BackgroundImage.styles";
 
 const BackgroundImage = () => {
-  const xefLogo = { uri: "../../../images/logo_xef_001.webp" };
+  const xefLogo = { uri: backgroundImage };
   return (
     <View style={styles.container}>
       <ImageBackground
