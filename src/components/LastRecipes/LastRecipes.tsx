@@ -4,10 +4,10 @@ import { View, Text } from "react-native";
 import styles from "./LastRecipes.styles";
 import { getRecipesThunk } from "../../redux/thunk/recipesThunks";
 import RecipeCard from "../RecipeCard/RecipeCard";
-import { IRecipeSchema, IRecipeProps } from "../../interfaces/recipesInterface";
+import { IRecipeProps } from "../../interfaces/recipesInterface";
 
 const LastRecipes = () => {
-  const recipes = useSelector(({ recipes }: IRecipeProps) => recipes);
+  const recipeInfo = useSelector(({ recipes }: IRecipeProps) => recipes);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,9 +16,9 @@ const LastRecipes = () => {
 
   return (
     <View style={styles.container}>
-      {recipes.length > 1 ? (
+      {recipeInfo.length > 1 ? (
         <View>
-          {recipes.map((recipe) => (
+          {recipeInfo.map((recipe) => (
             <RecipeCard key={recipe.id} recipeData={recipe} />
           ))}
         </View>

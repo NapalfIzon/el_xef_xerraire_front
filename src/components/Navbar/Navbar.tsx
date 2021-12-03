@@ -7,7 +7,6 @@ import {
   faPlusCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark, faUserCircle } from "@fortawesome/free-regular-svg-icons";
-import styles from "./Navbar.styles";
 
 const Navbar = () => {
   return (

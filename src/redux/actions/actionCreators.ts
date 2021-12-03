@@ -1,4 +1,3 @@
-import { IActionCreator } from "../../interfaces/actionsInterface";
 import actionTypes from "./actionTypes";
 
 const loadUserAction: object = (user: object) => ({
