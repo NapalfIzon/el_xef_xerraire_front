@@ -3,8 +3,9 @@ import { SafeAreaView, ScrollView, View, ImageBackground } from "react-native";
 import Navbar from "../../components/Navbar/Navbar";
 import LastRecipes from "../../components/LastRecipes/LastRecipes";
 import styles from "./HomeScreen.styles";
+import { NavigationProps } from "../../types/propTypes";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation }: NavigationProps) => {
   return (
     <SafeAreaView style={styles.body}>
       <ImageBackground

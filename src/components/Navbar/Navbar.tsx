@@ -1,7 +1,7 @@
 import React from "react";
-import { Text } from "react-native";
-import { HStack, IconButton, Icon, Pressable } from "native-base";
+import { HStack, IconButton, Icon } from "native-base";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { NavigationProps } from "../../types/propTypes";
 import {
   faHome,
   faSearch,
@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark, faUserCircle } from "@fortawesome/free-regular-svg-icons";
 
-const Navbar = ({ navigation }) => {
+const Navbar = ({ navigation }: NavigationProps) => {
   return (
     <>
       <HStack
