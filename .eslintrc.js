@@ -4,13 +4,13 @@ module.exports = {
   plugins: ["react", "@typescript-eslint", "prettier", "jest"],
   extends: [
     "eslint:recommended",
-    "plugin:react/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-native/all",
     "prettier",
     "plugin:jest/recommended",
     "plugin:react/jsx-runtime",
+    "plugin:react/recommended",
   ],
   parserOptions: {
     ecmaVersion: 2019,
@@ -44,7 +44,7 @@ module.exports = {
     "react-native/sort-styles": "off",
     "react-native/no-color-literals": ["warn"],
     "react-native/no-unused-styles": ["warn"],
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-dangle": ["error", "only-multiline"],
     quotes: ["error", "double", { allowTemplateLiterals: true }],
   },
   settings: {
