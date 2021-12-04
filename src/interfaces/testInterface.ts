@@ -1,4 +1,4 @@
-export interface ITestAction {
+export interface IUserState {
   isAuthenticated: boolean;
   user: object | unknown;
 }

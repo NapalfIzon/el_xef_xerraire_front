@@ -23,3 +23,8 @@ export interface IActionCreator {
   recipe?: object | undefined;
   recipes?: Array<object> | undefined;
 }
+
+export interface IAction {
+  isAuthenticated: boolean;
+  user: object | unknown;
+}
