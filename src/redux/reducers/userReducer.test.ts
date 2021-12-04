@@ -1,4 +1,5 @@
 import { initialUserData, userTest } from "../../factories/usersFactory";
+import { IUserState } from "../../interfaces/testInterface";
 import actionTypes from "../actions/actionTypes";
 import userReducer from "./userReducer";
 
@@ -10,7 +11,10 @@ describe("Given a userReducer reducer", () => {
         user: userTest,
       };
 
-      const { isAuthenticated, user } = userReducer(initialUserData, action);
+      const { isAuthenticated, user }: IUserState = userReducer(
+        initialUserData,
+        action
+      );
 
       expect(user).toEqual(action.user);
       expect(isAuthenticated).toBe(true);

@@ -1,6 +1,7 @@
 import React from "react";
 import { HStack, IconButton, Icon } from "native-base";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { NavigationProps } from "../../types/propTypes";
 import {
   faHome,
   faSearch,
@@ -8,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark, faUserCircle } from "@fortawesome/free-regular-svg-icons";
 
-const Navbar = () => {
+const Navbar = ({ navigation }: NavigationProps) => {
   return (
     <>
       <HStack
@@ -21,6 +22,7 @@ const Navbar = () => {
       >
         <HStack space="8" alignItems="center" paddingBottom="2">
           <IconButton
+            onPress={() => navigation.navigate("Home")}
             icon={
               <Icon
                 size="lg"
@@ -30,6 +32,7 @@ const Navbar = () => {
             }
           />
           <IconButton
+            onPress={() => navigation.navigate("Search")}
             icon={
               <Icon
                 as={<FontAwesomeIcon icon={faSearch} />}
@@ -39,6 +42,7 @@ const Navbar = () => {
             }
           />
           <IconButton
+            onPress={() => navigation.navigate("Add your recipe")}
             icon={
               <Icon
                 as={<FontAwesomeIcon icon={faPlusCircle} />}
@@ -48,6 +52,7 @@ const Navbar = () => {
             }
           />
           <IconButton
+            onPress={() => navigation.navigate("Profile")}
             icon={
               <Icon
                 as={<FontAwesomeIcon icon={faBookmark} />}
@@ -57,6 +62,7 @@ const Navbar = () => {
             }
           />
           <IconButton
+            onPress={() => navigation.navigate("Profile")}
             icon={
               <Icon
                 as={<FontAwesomeIcon icon={faUserCircle} />}
