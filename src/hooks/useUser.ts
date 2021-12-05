@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { IUserSchema } from "../interfaces/userInterface";
-import { addUserThunk } from "../redux/thunk/userThunks";
+import { IUserSchema, ILoginSchema } from "../interfaces/userInterface";
+import { addUserThunk, loginUserThunk } from "../redux/thunk/userThunks";
 
 const useUser = () => {
   const dispatch = useDispatch();
@@ -9,8 +9,13 @@ const useUser = () => {
     dispatch(addUserThunk(userData));
   };
 
+  const loginUser = (userData: ILoginSchema) => {
+    dispatch(loginUserThunk(userData));
+  };
+
   return {
     addUser,
+    loginUser,
   };
 };
 

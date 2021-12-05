@@ -10,7 +10,7 @@ const addUserAction: object = (user: object) => ({
   user,
 });
 
-const userLoginAction: object = (user: object) => ({
+const userLoginAction = (user) => ({
   type: actionTypes.userLogin,
   user,
 });
