@@ -1,13 +1,14 @@
 import React from "react";
-import { NativeBaseProvider, Text, View } from "native-base";
+import { NativeBaseProvider, Heading, Center } from "native-base";
 import { IShowTitle } from "../../interfaces/componentsInterface";
+import styles from "./ShowTitle.styles";
 
 const ShowTitle = ({ title }: IShowTitle) => {
   return (
     <NativeBaseProvider>
-      <View>
-        <Text>{title}</Text>
-      </View>
+      <Center style={styles.body}>
+        <Heading>{title}</Heading>
+      </Center>
     </NativeBaseProvider>
   );
 };
