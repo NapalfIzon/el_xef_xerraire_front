@@ -5,4 +5,5 @@ export const colors: IColors = {
   starBackground: "transparent",
   starShadow: "red",
   starEmpty: "rgba(150, 150, 150, 0.3)",
+  backgroundImage: "white",
 };
