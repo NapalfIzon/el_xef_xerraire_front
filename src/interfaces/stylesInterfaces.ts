@@ -3,4 +3,5 @@ export interface IColors {
   starBackground: string;
   starShadow: string;
   starEmpty: string;
+  backgroundImage: string;
 }
