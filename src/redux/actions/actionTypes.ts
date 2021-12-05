@@ -17,6 +17,7 @@ const actionTypes: IActionType = {
   uploadVote: "UPLOAD_VOTE",
   modifyRecipe: "MODIFY_RECIPE",
   removeRecipe: "REMOVE_RECIPE",
+  addIngredient: "ADD_INGREDIENT",
 };
 
 export default actionTypes;

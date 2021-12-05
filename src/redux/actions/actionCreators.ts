@@ -80,6 +80,11 @@ const removeRecipeAction: object = (recipe: object) => ({
   recipe,
 });
 
+const addIngredientAction: object = (ingredient: object) => ({
+  type: actionTypes.addIngredient,
+  ingredient,
+});
+
 export {
   loadUserAction,
   addUserAction,
@@ -97,4 +102,5 @@ export {
   uploadVoteAction,
   modifyRecipeAction,
   removeRecipeAction,
+  addIngredientAction,
 };
