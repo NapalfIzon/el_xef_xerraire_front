@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "913799964378",
+    "project_id": "final-project-xef-xerraire",
+    "storage_bucket": "final-project-xef-xerraire.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913799964378:android:69b0709b4e9b0b5b93e7e3",
+        "android_client_info": {
+          "package_name": "el.xef.xerraire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913799964378-ft2isvuk7ntc2cbo495khluhsfa6k8jf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPqfTDovinsRt3fJ4k3uKzfkLUSf7XY-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913799964378-ft2isvuk7ntc2cbo495khluhsfa6k8jf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "913799964378-58clh5j2qe76igcndoguoicndjkhssrs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "el.xef.xerraire"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
