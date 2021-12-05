@@ -1,5 +1,5 @@
 export interface IRecipeSchema {
-  id: string;
+  id?: string;
   title: string;
   description: string;
   category: string;

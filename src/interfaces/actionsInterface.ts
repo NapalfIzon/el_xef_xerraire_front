@@ -15,6 +15,7 @@ export interface IActionType {
   uploadVote: string;
   modifyRecipe: string;
   removeRecipe: string;
+  addIngredient: string;
 }
 
 export interface IActionCreator {

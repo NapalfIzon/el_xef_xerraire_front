@@ -47,7 +47,8 @@
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
     "redux-typescript": "^1.2.1",
-    "remote-redux-devtools": "^0.5.16"
+    "remote-redux-devtools": "^0.5.16",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
