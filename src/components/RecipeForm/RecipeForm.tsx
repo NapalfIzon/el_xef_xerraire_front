@@ -6,7 +6,6 @@ import {
   Icon,
   Stack,
   Text,
-  Popover,
   Box,
   Select,
   CheckIcon,
@@ -16,10 +15,9 @@ import {
 } from "native-base";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
-import { categoryList } from "../../utils/categoryList";
 import { NavigationProps } from "../../types/propTypes";
+import { categoryList } from "../../utils/categoryList";
 import useRecipe from "../../hooks/useRecipe";
-import styles from "./RecipeForm.styles";
 
 const RecipeForm = ({ navigation }: NavigationProps) => {
   const { addRecipe } = useRecipe();
