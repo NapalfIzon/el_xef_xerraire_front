@@ -2,14 +2,10 @@ import React, { useState } from "react";
 import {
   FormControl,
   Input,
-  IconButton,
   Icon,
   Stack,
   Text,
   Box,
-  Select,
-  CheckIcon,
-  VStack,
   HStack,
   Button,
 } from "native-base";

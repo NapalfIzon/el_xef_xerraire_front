@@ -9,3 +9,8 @@ export interface IUserSchema {
   myFavorites?: Array<string> | unknown;
   id?: string;
 }
+
+export interface ILoginSchema {
+  email: string;
+  password: string;
+}
