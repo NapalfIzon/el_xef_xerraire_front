@@ -12,7 +12,6 @@ export interface IRecipeSchema {
   quantityValorations: number;
   length?: number | undefined;
 }
-
 export interface IRecipeProps {
   recipes: Array<IRecipeSchema>;
   recipeData?: IRecipeSchema;

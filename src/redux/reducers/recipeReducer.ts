@@ -9,7 +9,7 @@ const recipeReducer = (recipe = {}, action: IActionCreator) => {
     case actionTypes.addRecipe:
     case actionTypes.uploadVote:
     case actionTypes.modifyRecipe:
-      newRecipe = { ...recipe };
+      newRecipe = { ...action.recipe };
       break;
     case actionTypes.removeRecipe:
       newRecipe = {};

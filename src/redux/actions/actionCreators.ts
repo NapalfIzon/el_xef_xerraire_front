@@ -50,7 +50,7 @@ const getRandomRecipesAction: object = (recipes: Array<object>) => ({
   recipes,
 });
 
-const getRecipeAction: object = (recipe: object) => ({
+const getRecipeAction = (recipe: object) => ({
   type: actionTypes.getRecipe,
   recipe,
 });
