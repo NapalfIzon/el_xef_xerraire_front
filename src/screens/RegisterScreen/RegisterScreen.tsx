@@ -1,11 +1,27 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView, SafeAreaView } from "react-native";
+import { NativeBaseProvider } from "native-base";
+import ShowTitle from "../../components/ShowTitle/ShowTitle";
+import { NavigationProps } from "../../types/propTypes";
+import styles from "./RegisterScreen.styles";
+import Navbar from "../../components/Navbar/Navbar";
+import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 
-const RegisterScreen = () => {
+export const RegisterScreen = ({ navigation }: NavigationProps) => {
+  const addRecipeTitle = "Regístrate";
+
   return (
-    <View>
-      <Text>Yo seré la RegisterScreen</Text>
-    </View>
+    <SafeAreaView style={styles.body}>
+      <BackgroundImage />
+      <NativeBaseProvider>
+        <ScrollView>
+          <ShowTitle title={addRecipeTitle} />
+          <RegisterForm navigation={navigation} />
+        </ScrollView>
+      </NativeBaseProvider>
+      <Navbar navigation={navigation} />
+    </SafeAreaView>
   );
 };
 
