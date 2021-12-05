@@ -1,18 +1,15 @@
 import React from "react";
-import { SafeAreaView, ScrollView, View, ImageBackground } from "react-native";
+import { SafeAreaView, ScrollView, View } from "react-native";
 import Navbar from "../../components/Navbar/Navbar";
 import LastRecipes from "../../components/LastRecipes/LastRecipes";
 import styles from "./HomeScreen.styles";
 import { NavigationProps } from "../../types/propTypes";
+import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 
 const HomeScreen = ({ navigation }: NavigationProps) => {
   return (
     <SafeAreaView style={styles.body}>
-      <ImageBackground
-        source={{ uri: "https://i.ibb.co/SKV5Btw/logo-xef-001.webp" }}
-        resizeMode="cover"
-        style={styles.backgroundImage}
-      />
+      <BackgroundImage />
       <ScrollView>
         <View>
           <LastRecipes />
