@@ -62,7 +62,7 @@ const Navbar = ({ navigation }: NavigationProps) => {
             }
           />
           <IconButton
-            onPress={() => navigation.navigate("Profile")}
+            onPress={() => navigation.navigate("Register")}
             icon={
               <Icon
                 as={<FontAwesomeIcon icon={faUserCircle} />}
