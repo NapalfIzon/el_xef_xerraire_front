@@ -22,6 +22,8 @@ const Navbar = ({ navigation }: NavigationProps) => {
       >
         <HStack space="8" alignItems="center" paddingBottom="2">
           <IconButton
+            accessibilityRole="button"
+            accessibilityLabel={"Home"}
             onPress={() => navigation.navigate("Home")}
             icon={
               <Icon
@@ -32,6 +34,8 @@ const Navbar = ({ navigation }: NavigationProps) => {
             }
           />
           <IconButton
+            accessibilityRole="button"
+            accessibilityLabel={"Search"}
             onPress={() => navigation.navigate("Search")}
             icon={
               <Icon
@@ -42,6 +46,8 @@ const Navbar = ({ navigation }: NavigationProps) => {
             }
           />
           <IconButton
+            accessibilityRole="button"
+            accessibilityLabel={"Add your recipe"}
             onPress={() => navigation.navigate("Add your recipe")}
             icon={
               <Icon
@@ -52,6 +58,8 @@ const Navbar = ({ navigation }: NavigationProps) => {
             }
           />
           <IconButton
+            accessibilityRole="button"
+            accessibilityLabel={"Profile"}
             onPress={() => navigation.navigate("Profile")}
             icon={
               <Icon
@@ -62,6 +70,8 @@ const Navbar = ({ navigation }: NavigationProps) => {
             }
           />
           <IconButton
+            accessibilityRole="button"
+            accessibilityLabel={"Login"}
             onPress={() => navigation.navigate("Login")}
             icon={
               <Icon

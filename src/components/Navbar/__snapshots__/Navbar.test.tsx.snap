@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Given a Navbar component, When it is rendered, Then it should a home icon. 1`] = `
+exports[`Given a Navbar component, When it is rendered, Then it should render the same as the snapshot. 1`] = `
 <
   alignItems="center"
   bg="#AB9B7A"
@@ -15,6 +15,8 @@ exports[`Given a Navbar component, When it is rendered, Then it should a home ic
     space="8"
   >
     <
+      accessibilityLabel="Home"
+      accessibilityRole="button"
       icon={
         <
           as={
@@ -41,6 +43,8 @@ exports[`Given a Navbar component, When it is rendered, Then it should a home ic
       onPress={[Function]}
     />
     <
+      accessibilityLabel="Search"
+      accessibilityRole="button"
       icon={
         <
           as={
@@ -67,6 +71,8 @@ exports[`Given a Navbar component, When it is rendered, Then it should a home ic
       onPress={[Function]}
     />
     <
+      accessibilityLabel="Add your recipe"
+      accessibilityRole="button"
       icon={
         <
           as={
@@ -93,6 +99,8 @@ exports[`Given a Navbar component, When it is rendered, Then it should a home ic
       onPress={[Function]}
     />
     <
+      accessibilityLabel="Profile"
+      accessibilityRole="button"
       icon={
         <
           as={
@@ -119,6 +127,8 @@ exports[`Given a Navbar component, When it is rendered, Then it should a home ic
       onPress={[Function]}
     />
     <
+      accessibilityLabel="Login"
+      accessibilityRole="button"
       icon={
         <
           as={
