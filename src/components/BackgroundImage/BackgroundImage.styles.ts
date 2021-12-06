@@ -16,5 +16,6 @@ export default StyleSheet.create({
     height: 250,
     width: 250,
     marginBottom: 250,
+    opacity: 0.2,
   },
 });
