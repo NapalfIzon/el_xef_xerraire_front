@@ -1,10 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { stringName } from "../utils/stringNames";
 
-const saveToken = async (token: object) => {
+const saveToken = async (token) => {
   try {
-    const receivedToken = await JSON.stringify(token);
-    await AsyncStorage.setItem(stringName.keyName, receivedToken);
+    await AsyncStorage.setItem(stringName.keyName, token);
   } catch ({ message }) {
     return message;
   }
@@ -13,9 +12,8 @@ const saveToken = async (token: object) => {
 const getToken = async () => {
   try {
     const storagedToken = await AsyncStorage.getItem(stringName.keyName);
-    if (storagedToken !== null) {
-      return JSON.parse(storagedToken);
-    }
+
+    return storagedToken;
   } catch ({ message }) {
     return message;
   }

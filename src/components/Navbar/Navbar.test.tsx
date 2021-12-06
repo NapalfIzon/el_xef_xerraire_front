@@ -38,7 +38,7 @@ describe("Given a Navbar component,", () => {
     const buttons = screen.getAllByRole("button");
     const homeButton = screen.getByLabelText("Home");
     const searchButton = screen.getByLabelText("Search");
-    const addRecipeButton = screen.getByLabelText("Add your recipe");
+    const addRecipeButton = screen.getByLabelText("AddRecipe");
     const profileButton = screen.getByLabelText("Profile");
     const loginButton = screen.getByLabelText("Login");
 

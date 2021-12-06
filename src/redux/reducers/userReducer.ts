@@ -5,7 +5,10 @@ import actionTypes from "../actions/actionTypes";
 const userReducer = (
   user: IUserState = {
     isAuthenticated: false,
-    user: {},
+    user: {
+      id: "",
+      myRecipes: [""],
+    },
   },
   action: IActionCreator
 ): IUserState => {

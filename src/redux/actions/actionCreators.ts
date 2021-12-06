@@ -1,6 +1,6 @@
 import actionTypes from "./actionTypes";
 
-const loadUserAction: object = (user: object) => ({
+const loadUserAction = (user) => ({
   type: actionTypes.loadUser,
   user,
 });
