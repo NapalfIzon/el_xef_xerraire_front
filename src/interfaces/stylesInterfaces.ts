@@ -1,3 +1,5 @@
+import { BlurEffectTypes } from "react-native-screens";
+
 export interface IColors {
   mainColor: string;
   star: string;
@@ -5,4 +7,5 @@ export interface IColors {
   starShadow: string;
   starEmpty: string;
   backgroundImage: string;
+  link: string;
 }

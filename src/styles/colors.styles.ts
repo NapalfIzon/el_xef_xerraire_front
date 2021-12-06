@@ -7,4 +7,5 @@ export const colors: IColors = {
   starShadow: "red",
   starEmpty: "rgba(150, 150, 150, 0.3)",
   backgroundImage: "white",
+  link: "blue",
 };
