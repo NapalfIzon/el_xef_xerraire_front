@@ -25,7 +25,7 @@ export interface IActionCreator {
   recipes?: Array<object> | undefined;
 }
 
-export interface IAction {
+export interface IUserAction {
   isAuthenticated: boolean;
   user: object | unknown;
 }
