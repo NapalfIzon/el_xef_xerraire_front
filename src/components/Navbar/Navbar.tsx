@@ -47,8 +47,8 @@ const Navbar = ({ navigation }: NavigationProps) => {
           />
           <IconButton
             accessibilityRole="button"
-            accessibilityLabel={"Add your recipe"}
-            onPress={() => navigation.navigate("Add your recipe")}
+            accessibilityLabel={"AddRecipe"}
+            onPress={() => navigation.navigate("AddRecipe")}
             icon={
               <Icon
                 as={<FontAwesomeIcon icon={faPlusCircle} />}
