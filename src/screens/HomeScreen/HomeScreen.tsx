@@ -5,6 +5,8 @@ import LastRecipes from "../../components/LastRecipes/LastRecipes";
 import styles from "./HomeScreen.styles";
 import { NavigationProps } from "../../types/propTypes";
 import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
+import { useSelector } from "react-redux";
+import { getUserDataThunk } from "../../redux/thunk/userThunks";
 
 const HomeScreen = ({ navigation }: NavigationProps) => {
   return (
@@ -12,7 +14,7 @@ const HomeScreen = ({ navigation }: NavigationProps) => {
       <BackgroundImage />
       <ScrollView>
         <View>
-          <LastRecipes />
+          <LastRecipes navigation={navigation} />
         </View>
       </ScrollView>
       <Navbar navigation={navigation} />

@@ -14,12 +14,16 @@ export const RootNavigator = () => {
   const Stack = createNativeStackNavigator();
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    /* screenOptions={{
+        headerShown: false,
+       }} */
+    >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Detail" component={DetailScreen} />
       <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="Add your recipe" component={AddRecipeScreen} />
+      <Stack.Screen name="AddRecipe" component={AddRecipeScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
