@@ -6,8 +6,13 @@ const userReducer = (
   user: IUserState = {
     isAuthenticated: false,
     user: {
-      id: "",
+      username: "",
+      email: "",
+      password: "",
+      avatar: "",
       myRecipes: [""],
+      myFavorites: [""],
+      id: "",
     },
   },
   action: IActionCreator

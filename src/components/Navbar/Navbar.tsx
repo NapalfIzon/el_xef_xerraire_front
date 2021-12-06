@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { HStack, IconButton, Icon } from "native-base";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { NavigationProps } from "../../types/propTypes";
@@ -8,8 +9,11 @@ import {
   faPlusCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark, faUserCircle } from "@fortawesome/free-regular-svg-icons";
+import { IUserSchema } from "../../interfaces/userInterface";
 
 const Navbar = ({ navigation }: NavigationProps) => {
+  const { isAuthenticated } = useSelector(({ user }: IUserSchema) => user);
+
   return (
     <>
       <HStack
@@ -45,42 +49,87 @@ const Navbar = ({ navigation }: NavigationProps) => {
               />
             }
           />
-          <IconButton
-            accessibilityRole="button"
-            accessibilityLabel={"AddRecipe"}
-            onPress={() => navigation.navigate("AddRecipe")}
-            icon={
-              <Icon
-                as={<FontAwesomeIcon icon={faPlusCircle} />}
-                color="white"
-                size="sm"
-              />
-            }
-          />
-          <IconButton
-            accessibilityRole="button"
-            accessibilityLabel={"Profile"}
-            onPress={() => navigation.navigate("Profile")}
-            icon={
-              <Icon
-                as={<FontAwesomeIcon icon={faBookmark} />}
-                size="sm"
-                color="green"
-              />
-            }
-          />
-          <IconButton
-            accessibilityRole="button"
-            accessibilityLabel={"Login"}
-            onPress={() => navigation.navigate("Login")}
-            icon={
-              <Icon
-                as={<FontAwesomeIcon icon={faUserCircle} />}
-                size="sm"
-                color="white"
-              />
-            }
-          />
+          {isAuthenticated ? (
+            <IconButton
+              accessibilityRole="button"
+              accessibilityLabel={"AddRecipe"}
+              onPress={() => navigation.navigate("AddRecipe")}
+              icon={
+                <Icon
+                  as={<FontAwesomeIcon icon={faPlusCircle} />}
+                  color="white"
+                  size="sm"
+                />
+              }
+            />
+          ) : (
+            <IconButton
+              accessibilityRole="button"
+              accessibilityLabel={"Login"}
+              onPress={() => navigation.navigate("Login")}
+              icon={
+                <Icon
+                  as={<FontAwesomeIcon icon={faPlusCircle} />}
+                  color="white"
+                  size="sm"
+                />
+              }
+            />
+          )}
+          {isAuthenticated ? (
+            <IconButton
+              accessibilityRole="button"
+              accessibilityLabel={"Profile"}
+              onPress={() => navigation.navigate("Profile")}
+              icon={
+                <Icon
+                  as={<FontAwesomeIcon icon={faBookmark} />}
+                  size="sm"
+                  color="green"
+                />
+              }
+            />
+          ) : (
+            <IconButton
+              accessibilityRole="button"
+              accessibilityLabel={"Login"}
+              onPress={() => navigation.navigate("Login")}
+              icon={
+                <Icon
+                  as={<FontAwesomeIcon icon={faBookmark} />}
+                  size="sm"
+                  color="green"
+                />
+              }
+            />
+          )}
+          {isAuthenticated ? (
+            <IconButton
+              accessibilityRole="button"
+              accessibilityLabel={"Profile"}
+              onPress={() => navigation.navigate("Profile")}
+              icon={
+                <Icon
+                  as={<FontAwesomeIcon icon={faUserCircle} />}
+                  size="sm"
+                  color="white"
+                />
+              }
+            />
+          ) : (
+            <IconButton
+              accessibilityRole="button"
+              accessibilityLabel={"Login"}
+              onPress={() => navigation.navigate("Login")}
+              icon={
+                <Icon
+                  as={<FontAwesomeIcon icon={faUserCircle} />}
+                  size="sm"
+                  color="white"
+                />
+              }
+            />
+          )}
         </HStack>
       </HStack>
     </>

@@ -21,6 +21,7 @@ exports[`Given a BackgroundImage component, When it is rendered, Then it should 
         "height": 250,
         "justifyContent": "center",
         "marginBottom": 250,
+        "opacity": 0.2,
         "width": 250,
       }
     }

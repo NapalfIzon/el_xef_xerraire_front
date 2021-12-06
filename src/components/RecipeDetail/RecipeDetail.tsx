@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Platform } from "react-native";
 import {
   Box,
   Image,
@@ -30,7 +30,7 @@ import { IUserAction } from "../../interfaces/actionsInterface";
 
 const RecipeDetail = ({ navigation, recipeData }: NavigationProps) => {
   const { user }: IUserAction = useSelector(({ user }) => user);
-  const [showMicrophone, setShowMicrophone] = useState(true);
+  const [showMicrophone, setShowMicrophone] = useState(false);
   const [showIngredients, setShowIngredients] = useState(true);
   const [showStep, setShowStep] = useState(0);
 
