@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FormControl,
   Input,
@@ -19,8 +19,8 @@ import { NavigationProps } from "../../types/propTypes";
 import { categoryList } from "../../utils/categoryList";
 import useRecipe from "../../hooks/useRecipe";
 
-const RecipeForm = ({ navigation }: NavigationProps) => {
-  const { addRecipe } = useRecipe();
+const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
+  const { addRecipe, modifyRecipe } = useRecipe();
   const [recipe, setRecipe] = useState({
     title: "",
     description: "",
@@ -33,6 +33,20 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
     quantityValorations: 1,
     owner: "randomUserId",
   });
+  const [isModification, setIsModification] = useState(false);
+  const [isTextOk, setIsTextOk] = useState(false);
+
+  useEffect(() => {
+    if (recipeData) {
+      const newRecipeData = {
+        ...recipeData,
+        owner: recipeData.owner.id,
+      };
+      setRecipe(newRecipeData);
+      setIsModification(true);
+      setIsTextOk(true);
+    }
+  }, [recipeData]);
 
   const changeRecipeData = (property: string, value: string, index: number) => {
     if (property === "ingredient") {
@@ -52,6 +66,18 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
         ...recipe,
         [property]: value,
       });
+    }
+    if (
+      recipe.title.length > 1 &&
+      recipe.description.length > 1 &&
+      recipe.category.length > 1 &&
+      recipe.ingredients.length > 1 &&
+      recipe.tools.length > 1 &&
+      recipe.steps.length > 1
+    ) {
+      setIsTextOk(true);
+    } else {
+      setIsTextOk(false);
     }
   };
 
@@ -126,7 +152,13 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
   };
 
   const createRecipe = () => {
-    addRecipe(recipe);
+    if (isModification) {
+      modifyRecipe(recipe);
+      navigation.navigate("Home");
+    } else {
+      addRecipe(recipe);
+      navigation.navigate("Home");
+    }
   };
 
   return (
@@ -154,6 +186,7 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
               }}
               isRequired={true}
               placeholder="Título de tu receta"
+              value={recipe.title}
               onChangeText={(value) => changeRecipeData("title", value, 0)}
             />
           </FormControl>
@@ -170,6 +203,7 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
                 md: "25%",
               }}
               placeholder="Escribe aquí la descripción de la receta"
+              value={recipe.description}
               onChangeText={(value) =>
                 changeRecipeData("description", value, 0)
               }
@@ -190,6 +224,7 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
               minWidth="200"
               accessibilityLabel="category"
               placeholder="Escoge tu categoría"
+              value={recipe.category}
               _selectedItem={{
                 endIcon: <CheckIcon size={1} />,
               }}
@@ -219,6 +254,7 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
                       md: "25%",
                     }}
                     placeholder="Escribe aquí el ingrediente"
+                    value={ingredient}
                     onChangeText={(value) =>
                       changeRecipeData("ingredient", value, index)
                     }
@@ -271,6 +307,7 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
                       md: "25%",
                     }}
                     placeholder="Escribe aquí el utensilio"
+                    value={tool}
                     onChangeText={(value) =>
                       changeRecipeData("tool", value, index)
                     }
@@ -323,6 +360,7 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
                       md: "25%",
                     }}
                     placeholder="Paso a seguir..."
+                    value={step}
                     onChangeText={(value) =>
                       changeRecipeData("step", value, index)
                     }
@@ -372,7 +410,7 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
                 md: "25%",
               }}
               isDisabled
-              placeholder="Selecciona la imagen..."
+              placeholder="Desactivado temporalmente"
             />
           </FormControl>
         </Box>
@@ -397,8 +435,9 @@ const RecipeForm = ({ navigation }: NavigationProps) => {
                 onPress={() => {
                   createRecipe();
                 }}
+                isDisabled={!isTextOk}
               >
-                <Text>GUARDAR</Text>
+                <Text>{isModification ? "MODIFICAR" : "GUARDAR"}</Text>
               </Button>
             </HStack>
           </FormControl>
