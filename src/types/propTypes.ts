@@ -18,6 +18,13 @@ export type NavigationProps = {
   recipeData?: IRecipeSchema;
 };
 
+export type INavigation = {
+  navigation: {
+    navigate: (type: string) => { type: string };
+  };
+  navigate: (type: string) => { type: string };
+};
+
 export type IChangeRecipeDataProp = {
   property: string;
   value: string | number;
