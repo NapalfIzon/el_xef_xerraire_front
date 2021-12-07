@@ -28,4 +28,15 @@ const deleteRecipeThunk = (recipeId: string | undefined) => async () => {
   });
 };
 
-export { addRecipeThunk, deleteRecipeThunk };
+const modifyRecipeThunk = (recipe: IRecipeSchema) => async () => {
+  const storageToken = await getToken();
+  const endpoint = `${API_XERRAPI_ENDPOINT}recipes/modifyrecipe`;
+
+  await axios.put(endpoint, recipe, {
+    headers: {
+      Authorization: `Bearer ${storageToken}`,
+    },
+  });
+};
+
+export { addRecipeThunk, deleteRecipeThunk, modifyRecipeThunk };

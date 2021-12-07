@@ -13,6 +13,7 @@ import { IUserSchema } from "../../interfaces/userInterface";
 
 const Navbar = ({ navigation }: NavigationProps) => {
   const { isAuthenticated } = useSelector(({ user }: IUserSchema) => user);
+  const isNotModified = false;
 
   return (
     <>
@@ -53,7 +54,9 @@ const Navbar = ({ navigation }: NavigationProps) => {
             <IconButton
               accessibilityRole="button"
               accessibilityLabel={"AddRecipe"}
-              onPress={() => navigation.navigate("AddRecipe")}
+              onPress={() =>
+                navigation.navigate("AddRecipe", { recipeData: isNotModified })
+              }
               icon={
                 <Icon
                   as={<FontAwesomeIcon icon={faPlusCircle} />}

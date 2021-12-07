@@ -1,4 +1,6 @@
 import React from "react";
+import { Provider } from "react-redux";
+import configureStore from "../../redux/store";
 import { render } from "@testing-library/react-native";
 import { NavigationProps } from "../../types/propTypes";
 import Navbar from "./Navbar";
@@ -11,6 +13,7 @@ jest.mock("native-base", () => ({
 jest.mock("@fortawesome/react-native-fontawesome", () => ({
   FontAwesomeIcon: "",
 }));
+const store = configureStore();
 
 describe("Given a Navbar component,", () => {
   describe("When it is rendered,", () => {
@@ -21,32 +24,32 @@ describe("Given a Navbar component,", () => {
         },
       };
 
-      const result = render(<Navbar navigation={navigationTest} />);
+      const result = render(
+        <Provider store={store}>
+          <Navbar navigation={navigationTest} />
+        </Provider>
+      );
 
       expect(result).toMatchSnapshot();
     });
   });
 
-  test("Then it should render al the Navbar buttons.", () => {
+  test("Then it should render a Home button.", () => {
     const navigationTest: NavigationProps = {
       navigation: {
         navigate: jest.fn(),
       },
     };
 
-    const screen = render(<Navbar navigation={navigationTest} />);
+    const screen = render(
+      <Provider store={store}>
+        <Navbar navigation={navigationTest} />
+      </Provider>
+    );
     const buttons = screen.getAllByRole("button");
     const homeButton = screen.getByLabelText("Home");
-    const searchButton = screen.getByLabelText("Search");
-    const addRecipeButton = screen.getByLabelText("AddRecipe");
-    const profileButton = screen.getByLabelText("Profile");
-    const loginButton = screen.getByLabelText("Login");
 
     expect(buttons).not.toBeNull();
     expect(homeButton).not.toBeNull();
-    expect(searchButton).not.toBeNull();
-    expect(addRecipeButton).not.toBeNull();
-    expect(profileButton).not.toBeNull();
-    expect(loginButton).not.toBeNull();
   });
 });

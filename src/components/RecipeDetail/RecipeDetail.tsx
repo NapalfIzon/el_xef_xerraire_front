@@ -60,11 +60,15 @@ const RecipeDetail = ({ navigation, recipeData }: NavigationProps) => {
 
   const openCancelMenu = () => setIsCancelMessage(!isCancelMessage);
 
+  const editRecipe = () => {
+    navigation.navigate("AddRecipe", { recipeData: recipeData });
+  };
+
   return (
     <Box style={styles.body}>
       <HStack style={styles.topButtons}>
         {user.myRecipes.includes(recipeData?.id) ? (
-          <TouchableOpacity onPress={() => bookmarkCheck()}>
+          <TouchableOpacity onPress={editRecipe}>
             <Icon as={<FontAwesomeIcon icon={faEdit} />} />
           </TouchableOpacity>
         ) : (
