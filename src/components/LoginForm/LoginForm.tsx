@@ -25,18 +25,25 @@ const LoginForm = ({ navigation }: NavigationProps) => {
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [isTextOk, setIsTextOk] = useState(false);
 
   const changeUserData = (property: string, value: string) => {
     setUserData({
       ...userData,
       [property]: value,
     });
+    if (userData.email.length > 1 && userData.password.length) {
+      setIsTextOk(true);
+    } else {
+      setIsTextOk(false);
+    }
   };
 
   const passwordDisplay = () => setShowPassword(!showPassword);
 
   const loginUserAction = () => {
     loginUser(userData);
+    navigation.navigate("Home");
   };
 
   return (
@@ -96,6 +103,7 @@ const LoginForm = ({ navigation }: NavigationProps) => {
                   w="1/6"
                   h="full"
                   onPress={passwordDisplay}
+                  style={styles.button}
                 >
                   {showPassword ? (
                     <Icon
@@ -134,9 +142,9 @@ const LoginForm = ({ navigation }: NavigationProps) => {
                   md: "25%",
                 }}
                 size="sm"
-                onPress={() => {
-                  loginUserAction();
-                }}
+                onPress={loginUserAction}
+                isDisabled={!isTextOk}
+                style={styles.button}
               >
                 <Text>Enciendan los fogones!</Text>
               </Button>
