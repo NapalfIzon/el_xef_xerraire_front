@@ -71,7 +71,7 @@ exports[`Given a Navbar component, When it is rendered, Then it should render th
       onPress={[Function]}
     />
     <
-      accessibilityLabel="AddRecipe"
+      accessibilityLabel="Login"
       accessibilityRole="button"
       icon={
         <
@@ -99,7 +99,7 @@ exports[`Given a Navbar component, When it is rendered, Then it should render th
       onPress={[Function]}
     />
     <
-      accessibilityLabel="Profile"
+      accessibilityLabel="Login"
       accessibilityRole="button"
       icon={
         <
