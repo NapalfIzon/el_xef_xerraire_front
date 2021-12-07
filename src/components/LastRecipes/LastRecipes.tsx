@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { View, Text, TouchableOpacity } from "react-native";
+import { Center, HStack, Spinner } from "native-base";
 import styles from "./LastRecipes.styles";
 import { getRecipesThunk } from "../../redux/thunk/recipesThunks";
 import RecipeCard from "../RecipeCard/RecipeCard";
@@ -8,7 +9,7 @@ import { IRecipeProps } from "../../interfaces/recipesInterface";
 import { NavigationProps } from "../../types/propTypes";
 
 const LastRecipes = ({ navigation }: NavigationProps) => {
-  const recipeInfo = useSelector(({ recipes }: IRecipeProps) => recipes);
+  const recipeList = useSelector(({ recipes }: IRecipeProps) => recipes);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,9 +18,9 @@ const LastRecipes = ({ navigation }: NavigationProps) => {
 
   return (
     <View style={styles.container}>
-      {recipeInfo.length > 1 ? (
+      {recipeList.length > 1 ? (
         <View>
-          {recipeInfo.map((recipe) => (
+          {recipeList.map((recipe) => (
             <TouchableOpacity
               key={recipe.id}
               onPress={() =>
@@ -31,9 +32,12 @@ const LastRecipes = ({ navigation }: NavigationProps) => {
           ))}
         </View>
       ) : (
-        <View>
-          <Text>Encendiendo los fogones...</Text>
-        </View>
+        <Center style={styles.spinnerMessage}>
+          <HStack>
+            <Text>Encendiendo los fogones</Text>
+            <Spinner color="warning.500" />
+          </HStack>
+        </Center>
       )}
     </View>
   );
