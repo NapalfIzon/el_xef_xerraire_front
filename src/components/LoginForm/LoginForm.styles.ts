@@ -12,4 +12,7 @@ export default StyleSheet.create({
   formControl: {
     marginTop: 40,
   },
+  button: {
+    backgroundColor: "#facc15",
+  },
 });
