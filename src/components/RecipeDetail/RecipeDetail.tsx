@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { TouchableOpacity, Platform } from "react-native";
+import { TouchableOpacity } from "react-native";
 import {
   Box,
   Image,
@@ -12,10 +12,11 @@ import {
   Spacer,
   Button,
   Divider,
+  View,
 } from "native-base";
 import Stars from "react-native-stars";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faBookmark } from "@fortawesome/free-regular-svg-icons";
+import { faBookmark, faEdit } from "@fortawesome/free-regular-svg-icons";
 import {
   faMinusCircle,
   faStar,
@@ -23,20 +24,27 @@ import {
   faMicrophoneAltSlash,
   faArrowLeft,
   faArrowRight,
+  faBookmark as faBookmarkChecked,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavigationProps } from "../../types/propTypes";
 import styles from "./RecipeDetail.styles";
 import { IUserAction } from "../../interfaces/actionsInterface";
+import AlertMessage from "../AlertMessage/AlertMessage";
+import { deleteRecipeMessageText } from "../../utils/deleteMessageData";
 
 const RecipeDetail = ({ navigation, recipeData }: NavigationProps) => {
   const { user }: IUserAction = useSelector(({ user }) => user);
   const [showMicrophone, setShowMicrophone] = useState(false);
   const [showIngredients, setShowIngredients] = useState(true);
+  const [bookmarkRecipe, setBookmarkRecipe] = useState(false);
   const [showStep, setShowStep] = useState(0);
+  const [isCancelMessage, setIsCancelMessage] = useState(false);
 
   const microphoneDisplay = () => setShowMicrophone(!showMicrophone);
 
   const ingredientsDisplay = () => setShowIngredients(!showIngredients);
+
+  const bookmarkCheck = () => setBookmarkRecipe(!bookmarkRecipe);
 
   const forwardStep = () => {
     if (showStep < recipeData?.steps.length - 1) {
@@ -50,14 +58,45 @@ const RecipeDetail = ({ navigation, recipeData }: NavigationProps) => {
     }
   };
 
+  const openCancelMenu = () => setIsCancelMessage(!isCancelMessage);
+
   return (
     <Box style={styles.body}>
       <HStack style={styles.topButtons}>
-        {user?.id !== recipeData?.id && (
-          <Icon as={<FontAwesomeIcon icon={faBookmark} />} />
+        {user.myRecipes.includes(recipeData?.id) ? (
+          <TouchableOpacity onPress={() => bookmarkCheck()}>
+            <Icon as={<FontAwesomeIcon icon={faEdit} />} />
+          </TouchableOpacity>
+        ) : (
+          <>
+            {bookmarkRecipe ? (
+              <TouchableOpacity onPress={() => bookmarkCheck()}>
+                <Icon as={<FontAwesomeIcon icon={faBookmarkChecked} />} />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity onPress={() => bookmarkCheck()}>
+                <Icon as={<FontAwesomeIcon icon={faBookmark} />} />
+              </TouchableOpacity>
+            )}
+          </>
         )}
-        {user?.myRecipes.includes(recipeData?.id) && (
-          <Icon as={<FontAwesomeIcon icon={faMinusCircle} />} />
+
+        {user?.myRecipes.includes(recipeData?.id) ? (
+          <>
+            <TouchableOpacity onPress={openCancelMenu}>
+              <Icon as={<FontAwesomeIcon icon={faMinusCircle} />} />
+            </TouchableOpacity>
+            {isCancelMessage && (
+              <AlertMessage
+                navigation={navigation}
+                recipeId={recipeData?.id}
+                message={deleteRecipeMessageText}
+                openCancelMenu={openCancelMenu}
+              />
+            )}
+          </>
+        ) : (
+          <View />
         )}
       </HStack>
       <Spacer />

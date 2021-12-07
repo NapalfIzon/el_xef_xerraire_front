@@ -8,4 +8,8 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
+  spinnerMessage: {
+    flex: 1,
+    marginTop: 300,
+  },
 });
