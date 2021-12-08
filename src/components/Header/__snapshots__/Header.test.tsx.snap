@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Header component, When it is rendered, Then it should render a logo image and a title image. 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={Object {}}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "marginBottom": 15,
+            },
+          ]
+        }
+      >
+        <Image
+          accessibilityLabel="Xef Xerraire Logo"
+          alt="Xef Xerraire Logo"
+          onError={[Function]}
+          source={
+            Object {
+              "uri": "https://i.ibb.co/SKV5Btw/logo-xef-001.webp",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 40,
+                "maxWidth": "100%",
+                "width": 40,
+              },
+              Object {
+                "height": 100,
+                "width": "25%",
+              },
+            ]
+          }
+        />
+        <View
+          style={Object {}}
+        />
+        <Image
+          accessibilityLabel="El Xef Xerraire"
+          alt="El Xef Xerraire"
+          onError={[Function]}
+          source={
+            Object {
+              "uri": "https://i.ibb.co/q5MTyzd/title-004.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 40,
+                "maxWidth": "100%",
+                "width": 40,
+              },
+              Object {
+                "width": "50%",
+              },
+            ]
+          }
+        />
+        <View
+          style={Object {}}
+        />
+        <Image
+          accessibilityLabel="Xef Xerraire Logo"
+          alt="Xef Xerraire Logo"
+          onError={[Function]}
+          source={
+            Object {
+              "uri": "https://i.ibb.co/SKV5Btw/logo-xef-001.webp",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 40,
+                "maxWidth": "100%",
+                "width": 40,
+              },
+              Object {
+                "height": 100,
+                "width": "25%",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
