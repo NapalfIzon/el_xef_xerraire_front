@@ -17,3 +17,4 @@ export interface IAlertComponent {
   message: IAlertMessage;
   openCancelMenu: any;
 }
+s;
