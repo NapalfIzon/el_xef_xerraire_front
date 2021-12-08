@@ -13,7 +13,9 @@ import { IUserSchema } from "../../interfaces/userInterface";
 
 const Navbar = ({ navigation }: NavigationProps) => {
   const { isAuthenticated } = useSelector(({ user }: IUserSchema) => user);
-  const isNotModified = false;
+  const recipeData = false;
+  const showMyRecipes = true;
+  const showMyFavorites = false;
 
   return (
     <>
@@ -54,36 +56,36 @@ const Navbar = ({ navigation }: NavigationProps) => {
             <IconButton
               accessibilityRole="button"
               accessibilityLabel={"AddRecipe"}
+              onPress={() => navigation.navigate("AddRecipe", { recipeData })}
+              icon={
+                <Icon
+                  as={<FontAwesomeIcon icon={faPlusCircle} />}
+                  color="white"
+                  size="sm"
+                />
+              }
+            />
+          ) : (
+            <IconButton
+              accessibilityRole="button"
+              accessibilityLabel={"Login"}
+              onPress={() => navigation.navigate("Login")}
+              icon={
+                <Icon
+                  as={<FontAwesomeIcon icon={faPlusCircle} />}
+                  color="white"
+                  size="sm"
+                />
+              }
+            />
+          )}
+          {isAuthenticated ? (
+            <IconButton
+              accessibilityRole="button"
+              accessibilityLabel={"Profile"}
               onPress={() =>
-                navigation.navigate("AddRecipe", { recipeData: isNotModified })
+                navigation.navigate("Profile", { showOption: showMyFavorites })
               }
-              icon={
-                <Icon
-                  as={<FontAwesomeIcon icon={faPlusCircle} />}
-                  color="white"
-                  size="sm"
-                />
-              }
-            />
-          ) : (
-            <IconButton
-              accessibilityRole="button"
-              accessibilityLabel={"Login"}
-              onPress={() => navigation.navigate("Login")}
-              icon={
-                <Icon
-                  as={<FontAwesomeIcon icon={faPlusCircle} />}
-                  color="white"
-                  size="sm"
-                />
-              }
-            />
-          )}
-          {isAuthenticated ? (
-            <IconButton
-              accessibilityRole="button"
-              accessibilityLabel={"Profile"}
-              onPress={() => navigation.navigate("Profile")}
               icon={
                 <Icon
                   as={<FontAwesomeIcon icon={faBookmark} />}
@@ -110,7 +112,9 @@ const Navbar = ({ navigation }: NavigationProps) => {
             <IconButton
               accessibilityRole="button"
               accessibilityLabel={"Profile"}
-              onPress={() => navigation.navigate("Profile")}
+              onPress={() =>
+                navigation.navigate("Profile", { showOption: showMyRecipes })
+              }
               icon={
                 <Icon
                   as={<FontAwesomeIcon icon={faUserCircle} />}
