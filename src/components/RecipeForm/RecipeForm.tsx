@@ -18,8 +18,11 @@ import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { NavigationProps } from "../../types/propTypes";
 import { categoryList } from "../../utils/categoryList";
 import useRecipe from "../../hooks/useRecipe";
+import { useDispatch } from "react-redux";
+import { getRecipesThunk } from "../../redux/thunk/recipesThunks";
 
 const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
+  const dispatch = useDispatch();
   const { addRecipe, modifyRecipe } = useRecipe();
   const [recipe, setRecipe] = useState({
     title: "",
@@ -154,6 +157,7 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
   const createRecipe = () => {
     if (isModification) {
       modifyRecipe(recipe);
+      dispatch(getRecipesThunk());
       navigation.navigate("Home");
     } else {
       addRecipe(recipe);
@@ -435,7 +439,7 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
                 onPress={() => {
                   createRecipe();
                 }}
-                isDisabled={!isTextOk}
+                isDisabled={false}
               >
                 <Text>{isModification ? "MODIFICAR" : "GUARDAR"}</Text>
               </Button>
