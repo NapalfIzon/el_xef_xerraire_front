@@ -4,14 +4,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ShowUserInfo.styles";
 import Header from "../Header/Header";
+import useUser from "../../hooks/useUser";
 
-const ShowUserInfo = ({ userData }) => {
+const ShowUserInfo = ({ userData, navigation }) => {
+  const { logoutUser } = useUser();
   const date = new Date(userData.registrationDate);
   const registrationDate = date.toLocaleDateString("es-ES", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
+
+  const logout = () => {
+    navigation.navigate("Home");
+    logoutUser();
+  };
 
   return (
     <Box style={styles.datacontainer}>
@@ -36,7 +43,7 @@ const ShowUserInfo = ({ userData }) => {
               uri: userData.avatar,
             }}
           />
-          <Button size="2xs" rounded="full" w="1/6" h="1/6" onPress={() => {}}>
+          <Button size="2xs" rounded="full" w="1/6" h="1/6" onPress={logout}>
             <Icon
               as={
                 <FontAwesomeIcon color={"red"} size={20} icon={faMinusCircle} />

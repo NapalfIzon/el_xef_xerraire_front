@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_XERRAPI_ENDPOINT, TOKEN } from "@env";
+import { API_XERRAPI_ENDPOINT } from "@env";
 import { IUserSchema, ILoginSchema } from "../../interfaces/userInterface";
 import { getToken, saveToken } from "../../storage/asyncStorage";
 import { userLoginAction, loadUserAction } from "../actions/actionCreators";

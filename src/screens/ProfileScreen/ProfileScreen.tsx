@@ -7,27 +7,19 @@ import Navbar from "../../components/Navbar/Navbar";
 import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import { NavigationRouteProps } from "../../types/propTypes";
 import ShowUserInfo from "../../components/ShowUserInfo/ShowUserInfo";
-import { IRecipeSchema } from "../../interfaces/recipesInterface";
-import useRecipe from "../../hooks/useRecipe";
 
 const ProfileScreen = ({ route, navigation }: NavigationRouteProps) => {
   const {
     params: { showOption },
   } = route;
-  const { user } = useSelector(({ user }) => user);
-  const recipe = useSelector(({ recipe }: IRecipeSchema) => recipe);
-  const { getRecipe } = useRecipe();
-
-  const getRecipeInfo = (id) => {
-    getRecipe(id);
-  };
+  const { user: userData } = useSelector(({ user }) => user);
 
   return (
     <SafeAreaView style={styles.body}>
       <BackgroundImage />
       <NativeBaseProvider>
         <ScrollView>
-          <ShowUserInfo userData={user} />
+          <ShowUserInfo userData={userData} navigation={navigation} />
           <Box style={styles.menu}>
             {showOption ? (
               <>

@@ -33,7 +33,7 @@ import AlertMessage from "../AlertMessage/AlertMessage";
 import { deleteRecipeMessageText } from "../../utils/deleteMessageData";
 
 const RecipeDetail = ({ navigation, recipeData }: NavigationProps) => {
-  const { user }: IUserAction = useSelector(({ user }) => user);
+  const { user: userData }: IUserAction = useSelector(({ user }) => user);
   const [showMicrophone, setShowMicrophone] = useState(false);
   const [showIngredients, setShowIngredients] = useState(true);
   const [bookmarkRecipe, setBookmarkRecipe] = useState(false);
@@ -67,25 +67,23 @@ const RecipeDetail = ({ navigation, recipeData }: NavigationProps) => {
   return (
     <Box style={styles.body}>
       <HStack style={styles.topButtons}>
-        {user.myRecipes.includes(recipeData?.id) ? (
+        {userData.myRecipes.includes(recipeData?.id) ? (
           <TouchableOpacity onPress={editRecipe}>
             <Icon as={<FontAwesomeIcon icon={faEdit} />} />
           </TouchableOpacity>
         ) : (
-          <>
-            {bookmarkRecipe ? (
-              <TouchableOpacity onPress={() => bookmarkCheck()}>
-                <Icon as={<FontAwesomeIcon icon={faBookmarkChecked} />} />
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity onPress={() => bookmarkCheck()}>
-                <Icon as={<FontAwesomeIcon icon={faBookmark} />} />
-              </TouchableOpacity>
-            )}
-          </>
+          <TouchableOpacity onPress={() => bookmarkCheck()}>
+            <Icon
+              as={
+                <FontAwesomeIcon
+                  icon={bookmarkRecipe ? faBookmarkChecked : faBookmark}
+                />
+              }
+            />
+          </TouchableOpacity>
         )}
 
-        {user?.myRecipes.includes(recipeData?.id) ? (
+        {userData?.myRecipes.includes(recipeData?.id) ? (
           <>
             <TouchableOpacity onPress={openCancelMenu}>
               <Icon as={<FontAwesomeIcon icon={faMinusCircle} />} />

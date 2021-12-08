@@ -11,9 +11,7 @@ const saveToken = async (token) => {
 
 const getToken = async () => {
   try {
-    const storagedToken = await AsyncStorage.getItem(stringName.keyName);
-
-    return storagedToken;
+    return await AsyncStorage.getItem(stringName.keyName);
   } catch ({ message }) {
     return message;
   }
