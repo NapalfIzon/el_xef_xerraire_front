@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { View, Text, TouchableOpacity } from "react-native";
-import { Center, HStack, Spinner } from "native-base";
+import { Center, HStack, Spinner, Box } from "native-base";
 import styles from "./LastRecipes.styles";
 import { getRecipesThunk } from "../../redux/thunk/recipesThunks";
 import RecipeCard from "../RecipeCard/RecipeCard";
@@ -19,7 +19,7 @@ const LastRecipes = ({ navigation }: NavigationProps) => {
   return (
     <View style={styles.container}>
       {recipeList.length > 1 ? (
-        <View>
+        <Box>
           {recipeList.map((recipe) => (
             <TouchableOpacity
               key={recipe.id}
@@ -30,7 +30,7 @@ const LastRecipes = ({ navigation }: NavigationProps) => {
               <RecipeCard key={recipe.id} recipeData={recipe} />
             </TouchableOpacity>
           ))}
-        </View>
+        </Box>
       ) : (
         <Center style={styles.spinnerMessage}>
           <HStack>
