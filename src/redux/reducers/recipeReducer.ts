@@ -1,7 +1,26 @@
 import { IActionCreator } from "../../interfaces/actionsInterface";
 import actionTypes from "../actions/actionTypes";
 
-const recipeReducer = (recipe = {}, action: IActionCreator) => {
+const recipeReducer = (
+  recipe = {
+    id: "",
+    title: "",
+    description: "",
+    category: "",
+    ingredients: [""],
+    tools: [""],
+    steps: [""],
+    image: "",
+    imageBackup: "",
+    valoration: 1,
+    quantityValorations: 1,
+    owner: {
+      id: "",
+      avatar: "",
+    },
+  },
+  action: IActionCreator
+) => {
   let newRecipe;
 
   switch (action.type) {

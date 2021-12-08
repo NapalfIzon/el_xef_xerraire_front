@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { IRecipeSchema } from "../interfaces/recipesInterface";
 import {
+  getRecipeThunk,
   addRecipeThunk,
   deleteRecipeThunk,
   modifyRecipeThunk,
@@ -8,6 +9,10 @@ import {
 
 const useRecipe = () => {
   const dispatch = useDispatch();
+
+  const getRecipe = (recipeId: string | undefined) => {
+    dispatch(getRecipeThunk(recipeId));
+  };
 
   const addRecipe = (recipe: IRecipeSchema) => {
     dispatch(addRecipeThunk(recipe));
@@ -22,6 +27,7 @@ const useRecipe = () => {
   };
 
   return {
+    getRecipe,
     addRecipe,
     deleteRecipe,
     modifyRecipe,
