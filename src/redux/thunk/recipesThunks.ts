@@ -9,6 +9,7 @@ export const getRecipesThunk = () => {
     const { data: recipes } = await axios.get(
       `${API_XERRAPI_ENDPOINT}recipes/`
     );
+
     dispatch(getRecipesAction(recipes));
   };
 };
