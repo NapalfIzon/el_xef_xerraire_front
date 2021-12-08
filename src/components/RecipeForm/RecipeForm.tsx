@@ -37,7 +37,7 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
     owner: "randomUserId",
   });
   const [isModification, setIsModification] = useState(false);
-  const [isTextOk, setIsTextOk] = useState(false);
+  const [isTextDisable, setIsTextDisable] = useState(true);
 
   useEffect(() => {
     if (recipeData) {
@@ -47,7 +47,7 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
       };
       setRecipe(newRecipeData);
       setIsModification(true);
-      setIsTextOk(true);
+      setIsTextDisable(false);
     }
   }, [recipeData]);
 
@@ -56,20 +56,27 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
       const newIngredientList = [...recipe.ingredients];
       newIngredientList[index] = value;
       setRecipe({ ...recipe, ingredients: newIngredientList });
+      changeButtonStatus();
     } else if (property === "tool") {
       const newToolList = [...recipe.tools];
       newToolList[index] = value;
       setRecipe({ ...recipe, tools: newToolList });
+      changeButtonStatus();
     } else if (property === "step") {
       const newStepList = [...recipe.steps];
       newStepList[index] = value;
       setRecipe({ ...recipe, steps: newStepList });
+      changeButtonStatus();
     } else {
       setRecipe({
         ...recipe,
         [property]: value,
       });
+      changeButtonStatus();
     }
+  };
+
+  const changeButtonStatus = () => {
     if (
       recipe.title.length > 1 &&
       recipe.description.length > 1 &&
@@ -78,9 +85,9 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
       recipe.tools.length > 1 &&
       recipe.steps.length > 1
     ) {
-      setIsTextOk(true);
+      setIsTextDisable(true);
     } else {
-      setIsTextOk(false);
+      setIsTextDisable(false);
     }
   };
 
@@ -439,7 +446,7 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
                 onPress={() => {
                   createRecipe();
                 }}
-                isDisabled={false}
+                isDisabled={isTextDisable}
               >
                 <Text>{isModification ? "MODIFICAR" : "GUARDAR"}</Text>
               </Button>

@@ -25,7 +25,7 @@ const modifyUserAction: object = (user: object) => ({
   user,
 });
 
-const removeUserAction: object = (user: object) => ({
+const removeUserAction = (user: object) => ({
   type: actionTypes.removeUser,
   user,
 });
