@@ -6,8 +6,6 @@ import ProfileScreen from "../screens/ProfileScreen/ProfileScreen";
 import AddRecipeScreen from "../screens/AddRecipeScreen/AddRecipeScreen";
 import RegisterScreen from "../screens/RegisterScreen/RegisterScreen";
 import LoginScreen from "../screens/LoginScreen/LoginScreen";
-import ConfirmationScreen from "../screens/ConfirmationScreen/ConfirmationScreen";
-import FailedScreen from "../screens/FailedScreen/FailedScreen";
 import DetailScreen from "../screens/DetailScreen/DetailScreen";
 
 export const RootNavigator = () => {
@@ -15,9 +13,9 @@ export const RootNavigator = () => {
 
   return (
     <Stack.Navigator
-    /* screenOptions={{
+      screenOptions={{
         headerShown: false,
-       }} */
+      }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Detail" component={DetailScreen} />
@@ -26,8 +24,6 @@ export const RootNavigator = () => {
       <Stack.Screen name="AddRecipe" component={AddRecipeScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
-      <Stack.Screen name="Failed" component={FailedScreen} />
     </Stack.Navigator>
   );
 };
