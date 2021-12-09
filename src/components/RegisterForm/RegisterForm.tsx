@@ -12,7 +12,9 @@ import {
 import { NavigationProps } from "../../types/propTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { colors } from "../../styles/colors.styles";
 import useUser from "../../hooks/useUser";
+import styles from "./RegisterForm.styles";
 
 const RegisterForm = ({ navigation }: NavigationProps) => {
   const { addUser } = useUser();
@@ -23,12 +25,22 @@ const RegisterForm = ({ navigation }: NavigationProps) => {
     avatar: "https://i.ibb.co/WtFPTtD/xef-template.jpg",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [isTextOk, setIsTextOk] = useState(false);
 
   const changeUserData = (property: string, value: string) => {
     setUserData({
       ...userData,
       [property]: value,
     });
+    if (
+      userData.username.length > 1 &&
+      userData.email.length > 1 &&
+      userData.password.length
+    ) {
+      setIsTextOk(true);
+    } else {
+      setIsTextOk(false);
+    }
   };
 
   const passwordDisplay = () => setShowPassword(!showPassword);
@@ -53,12 +65,12 @@ const RegisterForm = ({ navigation }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Como te llamas?</Text>
+              <Text style={styles.titleField}>Como te llamas?</Text>
             </FormControl.Label>
             <Input
+              style={styles.textInputField}
               w={{
                 base: "90%",
-                md: "25%",
               }}
               isRequired={true}
               placeholder="Nombre y apellido..."
@@ -70,12 +82,12 @@ const RegisterForm = ({ navigation }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Tu correo electrónico?</Text>
+              <Text style={styles.titleField}>Tu correo electrónico?</Text>
             </FormControl.Label>
             <Input
+              style={styles.textInputField}
               w={{
                 base: "90%",
-                md: "25%",
               }}
               isRequired={true}
               placeholder="Correo electrónico aquí..."
@@ -87,17 +99,20 @@ const RegisterForm = ({ navigation }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Qué contraseña quieres usar?</Text>
+              <Text style={styles.titleField}>
+                Qué contraseña quieres usar?
+              </Text>
             </FormControl.Label>
             <Input
+              style={styles.textInputField}
               type={showPassword ? "text" : "password"}
               w={{
                 base: "90%",
-                md: "25%",
               }}
               onChangeText={(value) => changeUserData("password", value)}
               InputRightElement={
                 <Button
+                  style={styles.buttonEye}
                   size="xs"
                   rounded="none"
                   w="1/6"
@@ -106,13 +121,25 @@ const RegisterForm = ({ navigation }: NavigationProps) => {
                 >
                   {showPassword ? (
                     <Icon
-                      as={<FontAwesomeIcon icon={faEyeSlash} />}
+                      as={
+                        <FontAwesomeIcon
+                          size={30}
+                          color={colors.white}
+                          icon={faEyeSlash}
+                        />
+                      }
                       color="white"
                       size="sm"
                     />
                   ) : (
                     <Icon
-                      as={<FontAwesomeIcon icon={faEye} />}
+                      as={
+                        <FontAwesomeIcon
+                          size={30}
+                          color={colors.white}
+                          icon={faEye}
+                        />
+                      }
                       color="white"
                       size="sm"
                     />
@@ -127,15 +154,15 @@ const RegisterForm = ({ navigation }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Foto de perfil?</Text>
+              <Text style={styles.titleField}>Foto de perfil?</Text>
             </FormControl.Label>
             <Input
+              style={styles.textInputField}
               w={{
                 base: "90%",
-                md: "25%",
               }}
               isDisabled
-              placeholder="Selecciona la imagen..."
+              placeholder="Desactivado temporalmente"
             />
           </FormControl>
         </Box>
@@ -147,21 +174,19 @@ const RegisterForm = ({ navigation }: NavigationProps) => {
               justifyContent="center"
               w={{
                 base: "100%",
-                md: "25%",
               }}
             >
               <Button
+                style={styles.buttonEye}
                 colorScheme="primary"
                 w={{
                   base: "40%",
-                  md: "25%",
                 }}
                 size="sm"
-                onPress={() => {
-                  createUser();
-                }}
+                onPress={createUser}
+                isDisabled={!isTextOk}
               >
-                <Text>Enciendan los fogones!</Text>
+                <Text style={styles.textButton}>Enciendan los fogones!</Text>
               </Button>
             </HStack>
           </FormControl>

@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import useUser from "../../hooks/useUser";
 import styles from "./LoginForm.styles";
+import { colors } from "../../styles/colors.styles";
 
 const LoginForm = ({ navigation }: NavigationProps) => {
   const { loginUser } = useUser();
@@ -70,12 +71,12 @@ const LoginForm = ({ navigation }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Tu correo electrónico?</Text>
+              <Text style={styles.titleField}>Tu correo electrónico?</Text>
             </FormControl.Label>
             <Input
+              style={styles.textInputField}
               w={{
                 base: "90%",
-                md: "25%",
               }}
               isRequired={true}
               placeholder="Correo electrónico aquí..."
@@ -87,13 +88,13 @@ const LoginForm = ({ navigation }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Tu contraseña?</Text>
+              <Text style={styles.titleField}>Tu contraseña?</Text>
             </FormControl.Label>
             <Input
+              style={styles.textInputField}
               type={showPassword ? "text" : "password"}
               w={{
                 base: "90%",
-                md: "25%",
               }}
               onChangeText={(value) => changeUserData("password", value)}
               InputRightElement={
@@ -107,15 +108,23 @@ const LoginForm = ({ navigation }: NavigationProps) => {
                 >
                   {showPassword ? (
                     <Icon
-                      as={<FontAwesomeIcon icon={faEyeSlash} />}
-                      color="white"
-                      size="sm"
+                      as={
+                        <FontAwesomeIcon
+                          size={30}
+                          color={colors.white}
+                          icon={faEyeSlash}
+                        />
+                      }
                     />
                   ) : (
                     <Icon
-                      as={<FontAwesomeIcon icon={faEye} />}
-                      color="white"
-                      size="sm"
+                      as={
+                        <FontAwesomeIcon
+                          size={30}
+                          color={colors.white}
+                          icon={faEye}
+                        />
+                      }
                     />
                   )}
                 </Button>
@@ -132,21 +141,19 @@ const LoginForm = ({ navigation }: NavigationProps) => {
               justifyContent="center"
               w={{
                 base: "100%",
-                md: "25%",
               }}
             >
               <Button
                 colorScheme="primary"
                 w={{
                   base: "40%",
-                  md: "25%",
                 }}
                 size="sm"
                 onPress={loginUserAction}
                 isDisabled={!isTextOk}
-                style={styles.button}
+                style={styles.buttonConfirm}
               >
-                <Text>Enciendan los fogones!</Text>
+                <Text style={styles.textButton}>Enciendan los fogones!</Text>
               </Button>
             </HStack>
           </FormControl>
