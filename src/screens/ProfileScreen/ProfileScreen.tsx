@@ -8,7 +8,7 @@ import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import { NavigationRouteProps } from "../../types/propTypes";
 import ShowUserInfo from "../../components/ShowUserInfo/ShowUserInfo";
 
-const ProfileScreen = ({ route, navigation }: NavigationRouteProps) => {
+const ProfileScreen = ({ navigation, route }: NavigationRouteProps) => {
   const {
     params: { showOption },
   } = route;

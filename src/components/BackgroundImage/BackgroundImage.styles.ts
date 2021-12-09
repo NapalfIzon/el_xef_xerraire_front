@@ -15,7 +15,7 @@ export default StyleSheet.create({
     justifyContent: "center",
     height: 250,
     width: 250,
-    marginBottom: 250,
+    marginBottom: 50,
     opacity: 0.2,
   },
 });

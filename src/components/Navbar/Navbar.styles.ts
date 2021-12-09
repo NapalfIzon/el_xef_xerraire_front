@@ -1,9 +1,12 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../styles/colors.styles";
 
 export default StyleSheet.create({
-  temporal: {
+  body: {
+    backgroundColor: colors.mainColor,
     flex: 1,
-    alignContent: "flex-end",
-    justifyContent: "flex-end",
+    justifyContent: "center",
+    justifyItems: "center",
+    alignItems: "center",
   },
 });

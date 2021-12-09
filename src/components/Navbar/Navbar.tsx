@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark, faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { IUserSchema } from "../../interfaces/userInterface";
+import { colors } from "../../styles/colors.styles";
 
 const Navbar = ({ navigation }: NavigationProps) => {
   const { isAuthenticated } = useSelector(({ user }: IUserSchema) => user);
@@ -23,121 +24,147 @@ const Navbar = ({ navigation }: NavigationProps) => {
         bg="#AB9B7A"
         px="1"
         py="3"
-        justifyContent="center"
-        justifyItems="center"
+        justifyContent="space-between"
         alignItems="center"
+        maxHeight="md"
       >
-        <HStack space="8" alignItems="center" paddingBottom="2">
+        <IconButton
+          accessibilityRole="button"
+          accessibilityLabel={"Home"}
+          onPress={() => navigation.navigate("Home")}
+          icon={
+            <Icon
+              as={
+                <FontAwesomeIcon size={30} color={colors.white} icon={faHome} />
+              }
+            />
+          }
+        />
+        <IconButton
+          accessibilityRole="button"
+          accessibilityLabel={"Search"}
+          onPress={() => navigation.navigate("Search")}
+          icon={
+            <Icon
+              as={
+                <FontAwesomeIcon
+                  size={30}
+                  color={colors.white}
+                  icon={faSearch}
+                />
+              }
+            />
+          }
+        />
+        {isAuthenticated ? (
           <IconButton
             accessibilityRole="button"
-            accessibilityLabel={"Home"}
-            onPress={() => navigation.navigate("Home")}
+            accessibilityLabel={"AddRecipe"}
+            onPress={() => navigation.navigate("AddRecipe", { recipeData })}
             icon={
               <Icon
-                size="lg"
-                as={<FontAwesomeIcon icon={faHome} />}
-                color="white"
+                as={
+                  <FontAwesomeIcon
+                    size={30}
+                    color={colors.white}
+                    icon={faPlusCircle}
+                  />
+                }
               />
             }
           />
+        ) : (
           <IconButton
             accessibilityRole="button"
-            accessibilityLabel={"Search"}
-            onPress={() => navigation.navigate("Search")}
+            accessibilityLabel={"Login"}
+            onPress={() => navigation.navigate("Login")}
             icon={
               <Icon
-                as={<FontAwesomeIcon icon={faSearch} />}
-                size="xl"
-                color="white"
+                as={
+                  <FontAwesomeIcon
+                    size={30}
+                    color={colors.white}
+                    icon={faPlusCircle}
+                  />
+                }
               />
             }
           />
-          {isAuthenticated ? (
-            <IconButton
-              accessibilityRole="button"
-              accessibilityLabel={"AddRecipe"}
-              onPress={() => navigation.navigate("AddRecipe", { recipeData })}
-              icon={
-                <Icon
-                  as={<FontAwesomeIcon icon={faPlusCircle} />}
-                  color="white"
-                  size="sm"
-                />
-              }
-            />
-          ) : (
-            <IconButton
-              accessibilityRole="button"
-              accessibilityLabel={"Login"}
-              onPress={() => navigation.navigate("Login")}
-              icon={
-                <Icon
-                  as={<FontAwesomeIcon icon={faPlusCircle} />}
-                  color="white"
-                  size="sm"
-                />
-              }
-            />
-          )}
-          {isAuthenticated ? (
-            <IconButton
-              accessibilityRole="button"
-              accessibilityLabel={"Profile"}
-              onPress={() =>
-                navigation.navigate("Profile", { showOption: showMyFavorites })
-              }
-              icon={
-                <Icon
-                  as={<FontAwesomeIcon icon={faBookmark} />}
-                  size="sm"
-                  color="green"
-                />
-              }
-            />
-          ) : (
-            <IconButton
-              accessibilityRole="button"
-              accessibilityLabel={"Login"}
-              onPress={() => navigation.navigate("Login")}
-              icon={
-                <Icon
-                  as={<FontAwesomeIcon icon={faBookmark} />}
-                  size="sm"
-                  color="green"
-                />
-              }
-            />
-          )}
-          {isAuthenticated ? (
-            <IconButton
-              accessibilityRole="button"
-              accessibilityLabel={"Profile"}
-              onPress={() =>
-                navigation.navigate("Profile", { showOption: showMyRecipes })
-              }
-              icon={
-                <Icon
-                  as={<FontAwesomeIcon icon={faUserCircle} />}
-                  size="sm"
-                  color="white"
-                />
-              }
-            />
-          ) : (
-            <IconButton
-              accessibilityRole="button"
-              accessibilityLabel={"Login"}
-              onPress={() => navigation.navigate("Login")}
-              icon={
-                <Icon
-                  as={<FontAwesomeIcon icon={faUserCircle} />}
-                  size="sm"
-                  color="white"
-                />
-              }
-            />
-          )}
-        </HStack>
+        )}
+        {isAuthenticated ? (
+          <IconButton
+            accessibilityRole="button"
+            accessibilityLabel={"Profile"}
+            onPress={() =>
+              navigation.navigate("Profile", { showOption: showMyFavorites })
+            }
+            icon={
+              <Icon
+                as={
+                  <FontAwesomeIcon
+                    size={30}
+                    color={colors.white}
+                    icon={faBookmark}
+                  />
+                }
+              />
+            }
+          />
+        ) : (
+          <IconButton
+            accessibilityRole="button"
+            accessibilityLabel={"Login"}
+            onPress={() => navigation.navigate("Login")}
+            icon={
+              <Icon
+                as={
+                  <FontAwesomeIcon
+                    size={30}
+                    color={colors.white}
+                    icon={faBookmark}
+                  />
+                }
+              />
+            }
+          />
+        )}
+        {isAuthenticated ? (
+          <IconButton
+            accessibilityRole="button"
+            accessibilityLabel={"Profile"}
+            onPress={() =>
+              navigation.navigate("Profile", { showOption: showMyRecipes })
+            }
+            icon={
+              <Icon
+                as={
+                  <FontAwesomeIcon
+                    size={30}
+                    color={colors.white}
+                    icon={faUserCircle}
+                  />
+                }
+              />
+            }
+          />
+        ) : (
+          <IconButton
+            accessibilityRole="button"
+            accessibilityLabel={"Login"}
+            onPress={() => navigation.navigate("Login")}
+            icon={
+              <Icon
+                as={
+                  <FontAwesomeIcon
+                    size={30}
+                    color={colors.white}
+                    icon={faUserCircle}
+                  />
+                }
+              />
+            }
+          />
+        )}
       </HStack>
     </>
   );
