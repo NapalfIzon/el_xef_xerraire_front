@@ -33,8 +33,8 @@ const ProfileScreen = ({ navigation, route }: NavigationRouteProps) => {
               </>
             )}
           </Box>
-          <Box>
-            <Text>En construcción</Text>
+          <Box style={styles.recipeContainer}>
+            <Text style={styles.constructionText}>En construcción</Text>
           </Box>
         </ScrollView>
       </NativeBaseProvider>

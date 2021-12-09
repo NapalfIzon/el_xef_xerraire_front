@@ -14,10 +14,22 @@ export default StyleSheet.create({
     alignContent: "center",
   },
   optionA: {
-    fontSize: 20,
+    fontSize: 22,
+    fontWeight: "bold",
   },
   optionB: {
     color: colors.white,
+    fontSize: 18,
+  },
+  recipeContainer: {
+    height: 200,
+    width: "100%",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  constructionText: {
     fontSize: 20,
+    fontWeight: "bold",
   },
 });
