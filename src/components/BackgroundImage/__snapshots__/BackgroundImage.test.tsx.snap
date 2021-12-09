@@ -20,7 +20,7 @@ exports[`Given a BackgroundImage component, When it is rendered, Then it should 
       Object {
         "height": 250,
         "justifyContent": "center",
-        "marginBottom": 250,
+        "marginBottom": 50,
         "opacity": 0.2,
         "width": 250,
       }
