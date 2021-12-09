@@ -21,11 +21,12 @@ export default StyleSheet.create({
     alignContent: "center",
   },
   title: {
+    marginBottom: 5,
     color: colors.white,
     fontSize: 30,
   },
   avatar: {
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "flex-end",
   },
   menu: {
@@ -42,5 +43,13 @@ export default StyleSheet.create({
   optionB: {
     color: colors.white,
     fontSize: 20,
+  },
+  goBackButton: {
+    backgroundColor: colors.white,
+    borderRadius: 50,
+  },
+  text: {
+    margin: 2,
+    fontSize: 16,
   },
 });

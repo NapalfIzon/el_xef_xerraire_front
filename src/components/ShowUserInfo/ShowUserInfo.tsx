@@ -5,6 +5,7 @@ import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ShowUserInfo.styles";
 import Header from "../Header/Header";
 import useUser from "../../hooks/useUser";
+import { colors } from "../../styles/colors.styles";
 
 const ShowUserInfo = ({ userData, navigation }) => {
   const { logoutUser } = useUser();
@@ -30,10 +31,12 @@ const ShowUserInfo = ({ userData, navigation }) => {
           <Heading>
             <Text style={styles.title}>{userData.username}</Text>
           </Heading>
-          <Text>Registrado el:</Text>
-          <Text>{registrationDate}</Text>
-          <Text>Recetas: {userData.myRecipes.length}</Text>
-          <Text>Favoritos: {userData.myFavorites.length}</Text>
+          <Text style={styles.text}>Registrado el:</Text>
+          <Text style={styles.text}>{registrationDate}</Text>
+          <Text style={styles.text}>Recetas: {userData.myRecipes.length}</Text>
+          <Text style={styles.text}>
+            Favoritos: {userData.myFavorites.length}
+          </Text>
         </Box>
         <Box style={styles.avatar}>
           <Avatar
@@ -43,10 +46,14 @@ const ShowUserInfo = ({ userData, navigation }) => {
               uri: userData.avatar,
             }}
           />
-          <Button size="2xs" rounded="full" w="1/6" h="1/6" onPress={logout}>
+          <Button size={30} style={styles.goBackButton} onPress={logout}>
             <Icon
               as={
-                <FontAwesomeIcon color={"red"} size={20} icon={faMinusCircle} />
+                <FontAwesomeIcon
+                  color={colors.mainColor}
+                  size={30}
+                  icon={faMinusCircle}
+                />
               }
             />
           </Button>
