@@ -1,7 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  button: {
-    color: "black",
+  titleField: {
+    marginTop: 20,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  textInputField: {
+    height: 50,
+    fontSize: 18,
   },
 });

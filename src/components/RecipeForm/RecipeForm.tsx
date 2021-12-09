@@ -20,6 +20,7 @@ import { categoryList } from "../../utils/categoryList";
 import useRecipe from "../../hooks/useRecipe";
 import { useDispatch } from "react-redux";
 import { getRecipesThunk } from "../../redux/thunk/recipesThunks";
+import styles from "./RecipeForm.styles";
 
 const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
   const dispatch = useDispatch();
@@ -188,12 +189,12 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Como se llama tu receta?</Text>
+              <Text style={styles.titleField}>Como se llama tu receta?</Text>
             </FormControl.Label>
             <Input
+              style={styles.textInputField}
               w={{
                 base: "90%",
-                md: "25%",
               }}
               isRequired={true}
               placeholder="Título de tu receta"
@@ -206,14 +207,16 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Describe brevemente tu receta</Text>
+              <Text style={styles.titleField}>
+                Describe brevemente tu receta
+              </Text>
             </FormControl.Label>
             <Input
+              style={styles.textInputField}
               w={{
                 base: "90%",
-                md: "25%",
               }}
-              placeholder="Escribe aquí la descripción de la receta"
+              placeholder="Dinos algo de tu receta"
               value={recipe.description}
               onChangeText={(value) =>
                 changeRecipeData("description", value, 0)
@@ -225,16 +228,18 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>A qué categoría pertenece tu receta?</Text>
+              <Text style={styles.titleField}>
+                A qué categoría pertenece tu receta?
+              </Text>
             </FormControl.Label>
             <Select
+              style={styles.textInputField}
               w={{
                 base: "90%",
-                md: "25%",
               }}
               minWidth="200"
               accessibilityLabel="category"
-              placeholder="Escoge tu categoría"
+              placeholder="Escoge una categoría"
               value={recipe.category}
               _selectedItem={{
                 endIcon: <CheckIcon size={1} />,
@@ -254,15 +259,15 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Qué ingredientes necesitas?</Text>
+              <Text style={styles.titleField}>Qué ingredientes necesitas?</Text>
             </FormControl.Label>
             <VStack space={3} alignItems="flex-start">
               {recipe.ingredients.map((ingredient, index: number) => (
                 <HStack space={1} alignItems="center" key={index}>
                   <Input
+                    style={styles.textInputField}
                     w={{
                       base: "80%",
-                      md: "25%",
                     }}
                     placeholder="Escribe aquí el ingrediente"
                     value={ingredient}
@@ -307,15 +312,17 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Necesitarás algún utensilio especial?</Text>
+              <Text style={styles.titleField}>
+                Necesitarás algún utensilio especial?
+              </Text>
             </FormControl.Label>
             <VStack space={3} alignItems="flex-start">
               {recipe.tools.map((tool, index: number) => (
                 <HStack space={1} alignItems="center" key={index}>
                   <Input
+                    style={styles.textInputField}
                     w={{
                       base: "80%",
-                      md: "25%",
                     }}
                     placeholder="Escribe aquí el utensilio"
                     value={tool}
@@ -360,15 +367,15 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Qué pasos hay que seguir?</Text>
+              <Text style={styles.titleField}>Qué pasos hay que seguir?</Text>
             </FormControl.Label>
             <VStack space={3} alignItems="flex-start">
               {recipe.steps.map((step, index: number) => (
                 <HStack space={1} alignItems="center" key={index}>
                   <Input
+                    style={styles.textInputField}
                     w={{
                       base: "80%",
-                      md: "25%",
                     }}
                     placeholder="Paso a seguir..."
                     value={step}
@@ -413,12 +420,14 @@ const RecipeForm = ({ navigation, recipeData }: NavigationProps) => {
         <Box>
           <FormControl mb="5">
             <FormControl.Label>
-              <Text>Quieres añadir alguna foto de tu receta?</Text>
+              <Text style={styles.titleField}>
+                Quieres añadir alguna foto de tu receta?
+              </Text>
             </FormControl.Label>
             <Input
+              style={styles.textInputField}
               w={{
                 base: "90%",
-                md: "25%",
               }}
               isDisabled
               placeholder="Desactivado temporalmente"
