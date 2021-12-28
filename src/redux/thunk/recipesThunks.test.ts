@@ -1,10 +1,9 @@
-import * as reactRedux from "react-redux";
 import axios from "axios";
 import { getRecipesThunk } from "./recipesThunks";
 import { API_XERRAPI_ENDPOINT } from "@env";
-import actionTypes from "../actions/actionTypes";
 
 jest.mock("axios");
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("Given a getRecipesThunk thunk,", () => {
   describe("When it calls the thunk,", () => {
@@ -15,14 +14,14 @@ describe("Given a getRecipesThunk thunk,", () => {
         { test: "test 3" },
       ];
       const endpoint = `${API_XERRAPI_ENDPOINT}recipes/`;
-      axios.get.mockResolvedValue(testRecipesList);
+      mockedAxios.get.mockResolvedValue(testRecipesList);
       const mockedDispatch = jest.fn();
 
       const receivedCallback = getRecipesThunk();
       await receivedCallback(mockedDispatch);
 
-      expect(axios.get).toHaveBeenCalledWith(endpoint);
-       expect(mockedDispatch).toHaveBeenCalled();
+      expect(mockedAxios.get).toHaveBeenCalledWith(endpoint);
+      expect(mockedDispatch).toHaveBeenCalled();
     });
   });
 });
